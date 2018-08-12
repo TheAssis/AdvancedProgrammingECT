@@ -1,0 +1,79 @@
+Respostas da Lista de ponteiros, por Mateus de Assis Silva
+
+q.1
+
+O uso de ponteiros está relacionado a manipulação de valores entre funções.
+
+q.2
+
+p == &i;            // true, pois p recebeu &i
+*p - *q;   	         // -2
+**&p;	         // valor guardado no endereço representado pelo valor de p
+3 - *p/(*q) + 7;  // 10
+
+q.3
+
+Será mostrado:
+>> 4094 7 5 15 9
+
+q.4
+
+p = i;                   // ilegal
+q = &j;                //
+p = &*&i;           //
+i = (*&)j;             // ilegal
+i = *&j;               //
+i = *&*&j;          // ilegal
+q = *p;               // ilegal
+i = (*p)++ + *q; //
+
+q.5
+
+>> 20
+>> 29.0
+>> P
+>> e
+>> P
+>> e
+>> t
+>> 31
+>> 45
+>> 27
+>> 31
+>> 45
+>> 27
+
+q.6
+
+sim, foram obtidas as respostas esperadas.
+
+q.7
+
+*(pulo + 2);
+
+q.8
+
+int mat[4], *p, x;
+
+p = mat + 1;   // válido, pois mat se refere a posição 0 do vetor, 
+	      // que pode ser somada a 1 e ir a mat[1]
+p = mat++;     // inválido, pois ...
+	      // ...
+p = ++mat;     // inválido, pois ...
+	      // ...
+x = (*mat)++; // válido, pois *mat é o primeiro item do vetor, o qual
+	      // pode ser somado com 1.
+
+q.9
+
+a primeira função main é responsável por mostrar os elementos do vetor. Isso ocorre pois o comando <printf("%d ",*(vet+i));>  mostra termos inteiros guardados na posição vet+i, devido a existência do asterisco, além de quê vet significa a posição 0.
+
+a segunda função main é responsável por mostrar os endereços dos elementos do vetor. Isso ocorre devido a ausência do asterisco.
+
+
+
+
+
+
+
+
