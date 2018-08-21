@@ -42,7 +42,7 @@ int main(){
         exit(0);
     }
 
-    // falta corrigir por aqui, dentro desse for
+   //o codigo trava quando chega aqui, aparentemente. Acho que não estou alocando os endereços das linhas direito.
     for ( j = 1; j< nc; j++){
         for(i = 1; i< nl; i++){
             x[i][j] = x[0][0] + i*j*sizeof(int);
@@ -51,7 +51,7 @@ int main(){
     }
     // isso mesmo, dentro desse for entre as linhas 46 e 51
 
-    //o codigo trava quando chega aqui, aparentemente.
+    // aqui eu deveria preencher a matriz 3d em si.
     for(k = 0 ; k < nf; k++){ printf("folha %d: \n", k);
         for(j = 0; j < nc; j++){
             for(i = 0; i < nl; i++){
@@ -60,6 +60,6 @@ int main(){
             }printf("\n");
         }
     }
-   // sim, o codigo entre as linhas 55 e 62  está travando toda a execução. XP
+   
 
 }
