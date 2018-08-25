@@ -38,6 +38,17 @@ int main (){
         *(z+i) = *(x+i) + *(y+i) ;
         printf("%d ", z[i]);
     }
+
+    int a = 2;
+    int *p = &a;
+    int **q = &p;
+
+    printf("\n\n\n%p\n", p); // endereço 0028FEF0
+    printf("%d\n", *p);      // 2
+    printf("%p\n", q);       // 0028FEFC
+    printf("%p\n",*q);       // 0028FEF0
+    printf("%d\n",**q);      // 2
+
     free(x);
     free(y);
     free(z);

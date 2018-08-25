@@ -34,6 +34,11 @@ int main(){
     x[1] = x[0] + nl*sizeof(int **);
     y[1] = y[0] + nl*sizeof(int **);
 
+    if(x[1] == NULL || y[1] == NULL){
+        printf("erro ao alocar vetor auxiliar inferior \n");
+        exit(0);
+    }
+
     x[0][0] = (int *)malloc(sizeof(int)*nf*nc*nl);
     y[0][0] = (int *)malloc(sizeof(int)*nf*nc*nl);
 
@@ -42,15 +47,15 @@ int main(){
         exit(0);
     }
 
-   //o codigo trava quando chega aqui, aparentemente. Acho que não estou alocando os endereços das linhas direito.
-    for ( j = 1; j< nc; j++){
-        for(i = 1; i< nl; i++){
-            x[i][j] = x[0][0] + i*j*sizeof(int);
-            y[i][j] = y[0][0] + i*j*sizeof(int);
+
+    for ( j = 0; j<=nc; j++){
+        for(i = 1; i<= 1; i++){
+            x[i][j] = x[0][0] + ((j+i*nl)*nc)*sizeof(int);
+            y[i][j] = y[0][0] + ((j+i*nl)*nc)*sizeof(int);
         }
     }
-    // isso mesmo, dentro desse for entre as linhas 46 e 51
-
+  printf("consegui alocar completamente a matriz");
+    /*
     // aqui eu deveria preencher a matriz 3d em si.
     for(k = 0 ; k < nf; k++){ printf("folha %d: \n", k);
         for(j = 0; j < nc; j++){
@@ -60,6 +65,7 @@ int main(){
             }printf("\n");
         }
     }
-   
 
+*/
+    return 0;
 }
