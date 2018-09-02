@@ -49,13 +49,10 @@ int main(){
         exit(0);
     }
 
-
     for ( j = 0; j<=nc; j++){
-        printf("\n");
         for(i = 0; i<= 1; i++){
             x[i][j] = x[0][0] + ((j+i*nl)*nc)*sizeof(int);
             y[i][j] = y[0][0] + ((j+i*nl)*nc)*sizeof(int);
-            printf("x[%d][%d] = %p , ",i, j, x[i][j]);
             if(x[i][j] == 0 ||y[i][j] == 0 ){
                 printf("Falha na alocação de memoria de x ou de y para a posicao [%d][%d]", i, j);
                 exit(0);
@@ -63,18 +60,38 @@ int main(){
         }
     }
 
- // printf("consegui alocar completamente a matriz");
-/*
+
     // aqui eu deveria preencher a matriz 3d em si.
-    for(i = 0 ; i < nl; i++){ //printf("folha %d: \n", k);
+    /*
+    PRESTE ATENÇÃO! A ordem dos iteradores(i,j e k) é a mesma em que eles vão surgindo.
+    Dado que criei um vetor de duas posições primeiro, i vai de 0 a 1. Por fim criei um vetor
+    que continha todas as posições, e a última dimensão comporta nl.
+    */
+    printf("\n");
+    for(i = 0 ; i < nf; i++){ printf("folha %d: \n", i);
         for(j = 0; j < nc; j++){
-            for(k = 0; k < nf; k++){
-                x[i][j][k] = 1;
+            for(k = 0; k < nl; k++){
+                x[i][j][k] = i+j+k;
                 printf("%d ",x[i][j][k]);
-            }//printf("\n");
+            }printf("\n");
         }
     }
-*/
+//printf("\n\t%p\t\t %d\n", x[0][0], *x[0][0]);
+    //copiando o bloco de memoria
+     memcpy(y[0][0], x[0][0], nl*nc*nf*sizeof(int));
+
+     printf("\n");
+     for(i = 0; i< nf;i++){
+        printf("folha %d: \n", i);
+        for(j=0;j<nc;j++){
+            for(k=0;k<nl;k++){
+                printf("%d ",y[i][j][k]);
+            }
+        printf("\n");
+        }
+     }
+
+    //ainda falta liberar a memoria
 
     return 0;
 }
